@@ -1,0 +1,119 @@
+/* Contact Page Styles */
+
+.page-header {
+  background: linear-gradient(rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.8)), 
+              url('https://images.pexels.com/photos/327540/pexels-photo-327540.jpeg');
+  background-size: cover;
+  background-position: center;
+  padding: var(--space-xxl) 0;
+  color: var(--white);
+  margin-top: 70px;
+  text-align: center;
+}
+
+/* Contact Info */
+.contact-info {
+  position: relative;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.info-item i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-top: var(--space-xs);
+}
+
+.info-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.info-item p {
+  color: var(--dark-gray);
+  margin-bottom: 0;
+}
+
+/* Contact Form */
+.contact-form {
+  position: relative;
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+/* Map Section */
+.map-section {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+/* FAQ Section */
+.accordion-item {
+  border: none;
+  margin-bottom: var(--space-sm);
+}
+
+.accordion-button {
+  background-color: var(--white);
+  border-radius: var(--border-radius-md) !important;
+  box-shadow: var(--shadow-sm);
+  font-weight: 500;
+  padding: var(--space-md) var(--space-lg);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--primary-color);
+  background-color: rgba(10, 61, 98, 0.05);
+}
+
+.accordion-button:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(10, 61, 98, 0.25);
+}
+
+.accordion-body {
+  padding: var(--space-lg);
+  color: var(--dark-gray);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .page-header {
+    padding: var(--space-xl) 0;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .contact-info,
+  .contact-form {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .info-item {
+    gap: var(--space-sm);
+  }
+  
+  .info-item i {
+    font-size: 1.25rem;
+  }
+  
+  .accordion-button {
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .accordion-body {
+    padding: var(--space-md);
+  }
+}

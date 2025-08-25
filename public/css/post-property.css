@@ -1,0 +1,65 @@
+/* Post Property Page Styles */
+
+.page-header {
+  background: linear-gradient(rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.8)), 
+              url('https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg');
+  background-size: cover;
+  background-position: center;
+  padding: var(--space-xxl) 0;
+  color: var(--white);
+  margin-top: 70px;
+  text-align: center;
+}
+
+.post-property-form {
+  margin-top: var(--space-lg);
+}
+
+.section-title h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--medium-gray);
+  padding-bottom: var(--space-sm);
+}
+
+.dropzone-container {
+  border: 2px dashed var(--medium-gray);
+  background-color: var(--light-gray);
+  transition: all var(--transition-fast);
+}
+
+.dropzone-container:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(10, 61, 98, 0.05);
+}
+
+.dropzone-container i {
+  color: var(--primary-color);
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .page-header {
+    padding: var(--space-xl) 0;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .post-property-form {
+    padding: var(--space-md);
+  }
+  
+  .section-title h3 {
+    font-size: 1.25rem;
+  }
+}

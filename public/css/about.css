@@ -1,0 +1,137 @@
+/* About Page Styles */
+
+.page-header {
+  background: linear-gradient(rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.8)), 
+              url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg');
+  background-size: cover;
+  background-position: center;
+  padding: var(--space-xxl) 0;
+  color: var(--white);
+  margin-top: 70px;
+  text-align: center;
+}
+
+/* Mission & Vision Cards */
+.mission-card,
+.vision-card {
+  transition: transform var(--transition-medium);
+}
+
+.mission-card:hover,
+.vision-card:hover {
+  transform: translateY(-5px);
+}
+
+.mission-icon,
+.vision-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+/* Core Values */
+.value-card {
+  transition: transform var(--transition-medium);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+}
+
+.value-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+/* Team Cards */
+.team-card {
+  transition: transform var(--transition-medium);
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-card img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.team-info {
+  text-align: center;
+}
+
+.social-links a {
+  color: var(--dark-gray);
+  margin: 0 var(--space-xs);
+  transition: color var(--transition-fast);
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Stats Section */
+.stats-section {
+  background-color: var(--light-gray);
+  margin: var(--space-xxl) 0;
+  padding: var(--space-xl) 0;
+}
+
+.stat-card {
+  padding: var(--space-lg);
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-medium);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: var(--space-sm);
+}
+
+.stat-label {
+  color: var(--dark-gray);
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .stat-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-header {
+    padding: var(--space-xl) 0;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .team-card img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .stat-card {
+    padding: var(--space-md);
+  }
+  
+  .stat-number {
+    font-size: 1.75rem;
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+  }
+}

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             // Optional: link to user who posted
-            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
             // Core listing info
             $table->string('title');
@@ -45,6 +45,7 @@ return new class extends Migration
 
             // Status
             $table->boolean('is_published')->default(true)->index();
+            $table->boolean('sold')->default(false);
 
             $table->timestamps();
             $table->softDeletes();

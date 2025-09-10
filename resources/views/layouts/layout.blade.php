@@ -37,13 +37,13 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link {{ setActive('home') }}" href="">
+                        <a class="nav-link {{ setActive('home') }}" href="{{ route('home') }}">
                             Home
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{ setActive('showproperties') }}" href="">
+                        <a class="nav-link {{ setActive('showproperties') }}" href="{{ route('showproperties') }}">
                             Properties
                         </a>
                     </li>

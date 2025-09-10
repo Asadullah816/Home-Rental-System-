@@ -1,12 +1,14 @@
 @extends('layouts.layout')
 @section('content')
-    <header class="page-header">
+    <header class="page-header" style="margin-top:100px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
                     <h1>{{ $property->title }}</h1>
                     <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</p>
                     <div class="property-meta">
+                        <span class="meta-item" style="text-transform:uppercase;"><i class="fas fa-home"></i>
+                            {{ $property->listing_type }} Property</span>
                         <span class="meta-item"><i class="fas fa-bed"></i> {{ $property->bedrooms }} Bedrooms</span>
                         <span class="meta-item"><i class="fas fa-bath"></i> {{ $property->bathrooms }} Bathrooms</span>
                         <span class="meta-item"><i class="fas fa-ruler-combined"></i> {{ $property->area }} sq ft</span>
@@ -18,11 +20,11 @@
                         ${{ number_format($property->price) }}
                         <span>{{ $property->type === 'rent' ? '/month' : '/sale' }}</span>
                     </div>
-                    <div class="property-actions">
+                    {{-- <div class="property-actions">
                         <button class="btn btn-outline-light me-2"><i class="far fa-heart"></i> Save</button>
                         <button class="btn btn-outline-light me-2"><i class="fas fa-share-alt"></i> Share</button>
                         <button class="btn btn-outline-light"><i class="fas fa-print"></i> Print</button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <nav aria-label="breadcrumb" class="mt-3">
@@ -52,8 +54,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="row g-3">
-                            @if ($property->gallery && count($property->gallery) > 0)
-                                @foreach ($property->gallery as $image)
+                            @if ($property->images)
+                                @foreach ($property->images as $image)
                                     <div class="col-6 col-md-12">
                                         <div class="property-thumbnail" data-src="{{ asset('storage/' . $image) }}">
                                             <img src="{{ asset('storage/' . $image) }}" alt="Gallery Image"
@@ -62,11 +64,7 @@
                                     </div>
                                 @endforeach
                             @endif
-                            <div class="col-12">
-                                <button class="btn btn-outline-primary btn-sm w-100 view-all-photos">
-                                    <i class="fas fa-images me-2"></i> View All Photos
-                                </button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -83,20 +81,11 @@
 
                     <!-- Features & Amenities -->
                     <div class="property-section mb-5">
-                        <h2 class="section-title">Features & Amenities</h2>
-                        {!! $property->features !!}
+                        <h2 class="section-title">Area Size</h2>
+                        {!! $property->area_size !!} SQ
                     </div>
 
                     <!-- Floor Plan -->
-                    <div class="property-section mb-5">
-                        <h2 class="section-title">Floor Plan</h2>
-                        @if ($property->floor_plan)
-                            <div class="floor-plan-container">
-                                <img src="{{ asset('storage/' . $property->floor_plan) }}" alt="Floor Plan"
-                                    class="img-fluid mb-3">
-                            </div>
-                        @endif
-                    </div>
 
                     <!-- Location -->
                     <div class="property-section mb-5">
@@ -125,14 +114,15 @@
                         <ul class="details-list">
                             <li><span class="detail-label">Property ID</span> <span
                                     class="detail-value">{{ $property->id }}</span></li>
-                            <li><span class="detail-label">Type</span> <span
-                                    class="detail-value">{{ ucfirst($property->type) }}</span></li>
+                            <li><span class="detail-label">Area Size</span> <span
+                                    class="detail-value">{{ ucfirst($property->area_size) }}ft</span></li>
+                            <li><span class="detail-label">Area Unit</span> <span
+                                    class="detail-value">{{ $property->area_unit }}</span></li>
                             <li><span class="detail-label">Bedrooms</span> <span
                                     class="detail-value">{{ $property->bedrooms }}</span></li>
                             <li><span class="detail-label">Bathrooms</span> <span
                                     class="detail-value">{{ $property->bathrooms }}</span></li>
-                            <li><span class="detail-label">Area</span> <span class="detail-value">{{ $property->area }} sq
-                                    ft</span></li>
+
                             <li><span class="detail-label">Parking</span> <span
                                     class="detail-value">{{ $property->parking }}</span></li>
                             <li><span class="detail-label">Available From</span> <span

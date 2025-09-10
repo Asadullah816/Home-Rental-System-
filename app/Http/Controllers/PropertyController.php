@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Property;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
@@ -61,7 +63,7 @@ class PropertyController extends Controller
         ]);
 
         $property = new Property();
-
+        $user = Auth::id();
         // Manual assignment (no mass assignment)
         $property->title          = $validated['title'];
         $property->listing_type   = $validated['listing_type'];
@@ -79,11 +81,9 @@ class PropertyController extends Controller
         $property->contact_phone  = $validated['contact_phone'];
         $property->whatsapp_phone = $validated['whatsapp_phone'] ?? null;
         $property->contact_email  = $validated['contact_email'] ?? null;
+        $property->user_id = $user;
 
         // If you’re using auth, you can set user_id like:
-        if ($request->user()) {
-            $property->user_id = $request->user()->id;
-        }
 
         // Store main image
         if ($request->hasFile('main_image')) {
@@ -96,8 +96,9 @@ class PropertyController extends Controller
             foreach ($request->file('images') as $img) {
                 $paths[] = $img->store('properties', 'public');
             }
-            $property->images = json_encode($paths);
+            $property->images = $paths; // store as array, will be auto-cast
         }
+
 
         // Published by default (can change later)
         $property->is_published = true;

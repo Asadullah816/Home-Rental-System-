@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     //
+    protected $casts = [
+        'images' => 'array',
+    ];
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }

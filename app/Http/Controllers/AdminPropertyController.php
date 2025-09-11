@@ -15,8 +15,8 @@ class AdminPropertyController extends Controller
 
     public function approve($id)
     {
-        $property = Property::findOrFail($id);
-        $property->is_published = true;
+        $property = Property::find($id);
+        $property->sold = true;
         $property->save();
 
         return back()->with('success', 'Property approved!');
@@ -24,7 +24,7 @@ class AdminPropertyController extends Controller
 
     public function disapprove($id)
     {
-        $property = Property::findOrFail($id);
+        $property = Property::find($id);
         $property->is_published = false;
         $property->save();
 
@@ -33,7 +33,7 @@ class AdminPropertyController extends Controller
 
     public function destroy($id)
     {
-        $property = Property::findOrFail($id);
+        $property = Property::find($id);
         $property->delete();
 
         return back()->with('success', 'Property deleted!');

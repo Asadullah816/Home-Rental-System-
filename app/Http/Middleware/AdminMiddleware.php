@@ -19,6 +19,8 @@ class AdminMiddleware
         if (Auth::check() && Auth::user()->admin === 1) {
             return $next($request);
         }
-        return $next($request);
+
+        // Block access if not admin
+        abort(403, 'Unauthorized action.');
     }
 }

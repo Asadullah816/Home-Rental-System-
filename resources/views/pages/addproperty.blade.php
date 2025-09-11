@@ -47,9 +47,11 @@
                                         <label class="form-label">Listing Type</label>
                                         <select name="listing_type" class="form-select" required>
                                             <option value="">Select Type</option>
-                                            <option value="rent" {{ old('listing_type') == 'rent' ? 'selected' : '' }}>Rent
+                                            <option value="rent" {{ old('listing_type') == 'rent' ? 'selected' : '' }}>
+                                                Rent
                                             </option>
-                                            <option value="sale" {{ old('listing_type') == 'sale' ? 'selected' : '' }}>Sale
+                                            <option value="sale" {{ old('listing_type') == 'sale' ? 'selected' : '' }}>
+                                                Sale
                                             </option>
                                         </select>
                                         @error('listing_type')
@@ -169,8 +171,10 @@
                             <div class="mb-4">
                                 <label class="form-label">Status</label>
                                 <select name="is_published" class="form-select">
-                                    <option value="1" {{ old('is_published', 1) == 1 ? 'selected' : '' }}>Published</option>
-                                    <option value="0" {{ old('is_published') == 0 ? 'selected' : '' }}>Unpublished</option>
+                                    <option value="1" {{ old('is_published', 1) == 1 ? 'selected' : '' }}>Published
+                                    </option>
+                                    <option value="0" {{ old('is_published') == 0 ? 'selected' : '' }}>Unpublished
+                                    </option>
                                 </select>
                             </div>
 

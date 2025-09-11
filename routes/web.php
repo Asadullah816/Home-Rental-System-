@@ -37,12 +37,14 @@ Route::put('/properties/{property}', [PropertyController::class, 'update'])->nam
 Route::delete('/properties/{property}', [PropertyController::class, 'destroy'])->name('properties.destroy');
 
 
-Route::prefix('admin/properties')->middleware('admin')->name('admin')->group(function () {
-    Route::get('/', [AdminPropertyController::class, 'index'])->name('index'); // Show table
-    Route::put('/approve/{id}', [AdminPropertyController::class, 'approve'])->name('approve');
-    Route::put('/disapprove/{id}', [AdminPropertyController::class, 'disapprove'])->name('disapprove');
-    Route::delete('/{id}', [AdminPropertyController::class, 'destroy'])->name('destroy');
+Route::prefix('admin/properties')->middleware('admin')->group(function () {
+    Route::get('/', [AdminPropertyController::class, 'index'])->name('admin'); // Show table
+
 });
+Route::get('/userproperty', [PropertyController::class, 'userproperty'])->name('userproperty');
+Route::post('/approve/{id}', [AdminPropertyController::class, 'approve'])->name('approve');
+Route::post('/disapprove/{id}', [AdminPropertyController::class, 'disapprove'])->name('disapprove');
+Route::delete('/{id}', [AdminPropertyController::class, 'destroy'])->name('destroy');
 
 
 require __DIR__ . '/auth.php';

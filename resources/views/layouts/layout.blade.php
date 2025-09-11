@@ -53,6 +53,20 @@
                             List Property
                         </a>
                     </li>
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link {{ setActive('userproperty') }}" href="{{ route('userproperty') }}">
+                                My Properties
+                            </a>
+                        </li>
+                    @endauth
+                    @if (auth()->user() && auth()->user()->admin === 1)
+                        <li class="nav-item">
+                            <a class="nav-link {{ setActive('admin') }}" href="{{ route('admin') }}">
+                                Admin
+                            </a>
+                        </li>
+                    @endif
 
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="">
@@ -73,11 +87,28 @@
                         </a>
                     </li> --}}
 
-                    {{-- <li class="nav-item">
-                        <a class="nav-link login-btn" href="#">
-                            Login / Register
-                        </a>
-                    </li> --}}
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link login-btn" href="{{ route('login') }}">
+                                Login
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link login-btn" href="{{ route('register') }}">
+                                Register
+                            </a>
+                        </li>
+                    @endguest
+                    @auth
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link login-btn">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>

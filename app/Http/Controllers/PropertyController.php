@@ -271,4 +271,10 @@ class PropertyController extends Controller
         $property = Property::find($id);
         return view('pages.property_details', compact('property'));
     }
+    public function userproperty()
+    {
+        $user = Auth::id();
+        $properties = Property::where('user_id', $user)->get();
+        return view('pages.userProperty', compact('properties'));
+    }
 }
